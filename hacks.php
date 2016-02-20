@@ -1,7 +1,14 @@
 <?php
 ini_set('display_errors', 1);
 
-function list_tweeter_users_occupations($occupation) {
+/**
+ * Look for tweeter occupations.
+ * 
+ * @param string $occupation
+ *   The occupation that you are looking to get people Who are doing or achieve this.
+ * @return 
+ */
+function list_tweeter_users_occupations($occupation, $count) {
   require_once('TwitterAPIExchange.php');
   /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
   $settings = array(
@@ -19,7 +26,7 @@ function list_tweeter_users_occupations($occupation) {
   $url = 'https://api.twitter.com/1.1/users/search.json';
   //$url = 'https://api.twitter.com/1.1/search/tweets.json';
   //$getfield = 'q=chef&geocode=-9.189967,-75.015152&lang=es';
-  $getfield = 'q=' . $occupation . '+' . $country . '&count=3';
+  $getfield = 'q=' . $occupation . '+' . $country . '&count=' . $count;
   $requestMethod = 'GET';
   $twitter = new TwitterAPIExchange($settings);
   $result = $twitter->setGetfield($getfield)
