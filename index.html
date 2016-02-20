@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title></title>
+        <link rel="stylesheet" href="css/uikit.min.css" />
+		<link rel="stylesheet" href="css/components/autocomplete.min.css" />
+		<link rel="stylesheet" href="css/custom/base.css" />
+		<link rel="stylesheet" href="css/custom/flag-icon.min.css" />
+		
+		
+		
+		
+        <script src="js/libs/jquery-1.10.2.min.js"></script>
+        <script src="js/uikit.min.js"></script>
+		<script src="js/components/autocomplete.min.js"></script>
+
+    </head>
+    <body>
+
+		<nav class="uk-navbar">
+		                <a href="layouts_frontpage.html" class="uk-navbar-brand uk-hidden-small logo">
+		                	<img src="img/logo.png">
+		                </a>
+		                <ul class="uk-navbar-nav uk-hidden-small">
+		                    <li>
+		                        <a href="layouts_frontpage.html">Frontpage</a>
+		                    </li>
+		                    <li>
+		                        <a href="layouts_portfolio.html">Portfolio</a>
+		                    </li>
+		                    <li>
+		                        <a href="layouts_blog.html">Blog</a>
+		                    </li>
+		                    <li class="uk-active">
+		                        <a href="layouts_documentation.html">Documentation</a>
+		                    </li>
+		                    <li>
+		                        <a href="layouts_contact.html">Contact</a>
+		                    </li>
+		                    <li>
+		                        <a href="layouts_login.html">Login</a>
+		                    </li>
+		                </ul>
+		                <a data-uk-offcanvas="" class="uk-navbar-toggle uk-visible-small" href="#offcanvas"></a>
+		                <div class="uk-navbar-brand uk-navbar-center uk-visible-small">Brand</div>
+		            </nav>
+		
+		<div data-uk-grid-margin="" class="uk-grid">
+			<div class="uk-width-medium-1-1 uk-row-first">
+
+				<div class="portrait-top uk-vertical-align uk-text-center">
+					<div class="uk-vertical-align-middle uk-width-1-2">
+						<h1 class="uk-heading-large">TELL ME WHAT YOU WOULD LIKE TO ACHIEVE, AND WILL TELL YOU PEOPLE WHO DID AND HOW TO ACHIEVE IT WITHOUT MONEY</h1>
+						<p class="uk-text-large">We've tried to make things simple and fairly intuitive so you can unleash your creativity without any obstacles.</p>
+
+
+
+
+					
+
+						<!-- autocomplete -->
+						<div class="uk-autocomplete uk-form" data-uk-autocomplete="{source:'js/jobs.json'}">
+						    <input type="text">
+						    <script type="text/autocomplete">
+						        <ul class="uk-nav uk-nav-autocomplete uk-autocomplete-results">
+						            {{~items}}
+						            <li data-value="{{ $item.value }}">
+						                <a>
+						                    {{ $item.title }}
+						                    <div>{{{ $item.text }}}</div>
+						                </a>
+						            </li>
+						            {{/items}}
+						        </ul>
+						    </script>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+			
+		<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom region-grid">
+		
+		<p>
+			People who achieve this and are from your country or around you
+		</p>
+		
+		<!-- PART 2 -->
+		<div data-uk-grid-margin="" class="uk-grid">
+			<div class="uk-width-medium-1-5 uk-text-center uk-row-first">
+				<div class="uk-thumbnail uk-overlay-hover uk-border-circle">
+					<figure class="uk-overlay">
+						<img width="250" height="250" alt="" src="img/userpic.jpg" class="uk-border-circle">
+						<figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center uk-border-circle">
+							<div>
+								<a class="uk-icon-button uk-icon-envelope" href="#"></a>
+								<a class="uk-icon-button uk-icon-twitter" href="#"></a>
+								<a class="uk-icon-button uk-icon-google-plus" href="#"></a>
+							</div>
+						</figcaption>
+					</figure>
+				</div>
+				<h2 class="uk-margin-bottom-remove"><span class="flag-icon flag-icon-gr"></span> Name</h2>
+				<p class="uk-text-large uk-margin-top-remove uk-text-muted">Job Description</p>
+			</div>
+			
+			<div class="uk-width-medium-1-5 uk-text-center">
+				<div class="uk-thumbnail uk-overlay-hover uk-border-circle">
+					<figure class="uk-overlay">
+						<img width="250" height="250" alt="" src="img/userpic.jpg" class="uk-border-circle">
+						<figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center uk-border-circle">
+							<div>
+								<a class="uk-icon-button uk-icon-envelope" href="#"></a>
+								<a class="uk-icon-button uk-icon-twitter" href="#"></a>
+								<a class="uk-icon-button uk-icon-google-plus" href="#"></a>
+							</div>
+						</figcaption>
+					</figure>
+				</div>
+				<h2 class="uk-margin-bottom-remove"><span class="flag-icon flag-icon-gr"></span> Name</h2>
+				<p class="uk-text-large uk-margin-top-remove uk-text-muted">Job Description</p>
+			</div>
+			
+			<div class="uk-width-medium-1-5 uk-text-center">
+				<div class="uk-thumbnail uk-overlay-hover uk-border-circle">
+					<figure class="uk-overlay">
+						<img width="250" height="250" alt="" src="img/userpic.jpg" class="uk-border-circle">
+						<figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center uk-border-circle">
+							<div>
+								<a class="uk-icon-button uk-icon-envelope" href="#"></a>
+								<a class="uk-icon-button uk-icon-twitter" href="#"></a>
+								<a class="uk-icon-button uk-icon-google-plus" href="#"></a>
+							</div>
+						</figcaption>
+					</figure>
+				</div>
+				<h2 class="uk-margin-bottom-remove"><span class="flag-icon flag-icon-gr"></span> Name 2</h2>
+				<p class="uk-text-large uk-margin-top-remove uk-text-muted">Job Description</p>
+			</div>
+			
+			<div class="uk-width-medium-1-5 uk-text-center">
+				<div class="uk-thumbnail uk-overlay-hover uk-border-circle">
+					<figure class="uk-overlay">
+						<img width="250" height="250" alt="" src="img/userpic.jpg" class="uk-border-circle">
+						<figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center uk-border-circle">
+							<div>
+								<a class="uk-icon-button uk-icon-envelope" href="#"></a>
+								<a class="uk-icon-button uk-icon-twitter" href="#"></a>
+								<a class="uk-icon-button uk-icon-google-plus" href="#"></a>
+							</div>
+						</figcaption>
+					</figure>
+				</div>
+				<h2 class="uk-margin-bottom-remove"><span class="flag-icon flag-icon-gr"></span> Name</h2>
+				<p class="uk-text-large uk-margin-top-remove uk-text-muted">Job Description</p>
+			</div>
+			
+			<div class="uk-width-medium-1-5 uk-text-center">
+				<div class="uk-thumbnail uk-overlay-hover uk-border-circle">
+					<figure class="uk-overlay">
+						<img width="250" height="250" alt="" src="img/userpic.jpg" class="uk-border-circle">
+						<figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center uk-border-circle">
+							<div>
+								<a class="uk-icon-button uk-icon-envelope" href="#"></a>
+								<a class="uk-icon-button uk-icon-twitter" href="#"></a>
+								<a class="uk-icon-button uk-icon-google-plus" href="#"></a>
+							</div>
+						</figcaption>
+					</figure>
+				</div>
+				<h2 class="uk-margin-bottom-remove">Name</h2>
+				<p class="uk-text-large uk-margin-top-remove uk-text-muted">Job Description</p>
+			</div>
+			
+		             
+		</div>
+		</div>
+		
+		
+		
+
+				
+		
+    </body>
+</html>

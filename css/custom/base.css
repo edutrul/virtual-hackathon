@@ -1,0 +1,23 @@
+.portrait-top {
+	background: rgba(25, 41, 56, 0.8);
+	min-height: 450px;
+	padding-top: 100px;
+	box-sizing: border-box;
+}
+
+.region-grid {
+	padding: 6em 0;
+}
+
+.uk-navbar {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: black;
+}
+
+.logo img {
+	max-width: 200px;
+	height: auto;
+}
