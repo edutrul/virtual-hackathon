@@ -57,9 +57,15 @@
 
 					
 
-						<form class="main-search">
-							<input type="text" placeholder="What you want to become? e.g: Developer" class="main-search">
-							<input type="submit" value="Buscar">
+						<form id="main-search-job">
+							<div class="field">
+								<input type="text" placeholder="What you want to become? e.g: Developer" id="search-job" class="main-search" value="">
+								<input type="submit" value="Buscar">
+							</div>
+							
+							<ul id="search-job-list">
+								
+							</ul>
 						</form>
 
 
@@ -165,6 +171,13 @@
 		</div>
 		</div>
 		
+		<script type="text/template" id="template-search-job-item">
+			<div class="item">
+				<%- title %>
+			</div>
+		</script>
+		
+		<script src="js/data-jobs.json"></script>
 		<script src="js/libs/jquery-1.10.2.min.js"></script>
 		<script src="js/libs/underscore-min.js"></script>
 		<script src="js/libs/backbone-min.js"></script>
