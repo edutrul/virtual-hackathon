@@ -12,7 +12,6 @@ $settings = array(
 $data_geop = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=' . $_SERVER['REMOTE_ADDR']));
 print_r($data_geop);
 $country = !empty($data_geop['geoplugin_countryName']) ? $data_geop['geoplugin_countryName'] : '';
-$country = 'Peru';
 
 /** Perform a GET request and echo the response **/
 /** Note: Set the GET field BEFORE calling buildOauth(); **/
