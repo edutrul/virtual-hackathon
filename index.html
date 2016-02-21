@@ -117,28 +117,31 @@
 					<div class="">
 						<div class="uk-thumbnail uk-overlay-hover uk-border-circle">
 							<figure class="uk-overlay">
-								<img width="250" height="250" alt="" src="img/userpic.jpg" class="uk-border-circle">
+								<img width="250" height="250" alt="" src="<%- image %>" class="uk-border-circle">
 								<figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center uk-border-circle">
 									<div>
 										<a class="uk-icon-button uk-icon-envelope" href="#"></a>
-										<a class="uk-icon-button uk-icon-twitter" href="#"></a>
+										<a class="uk-icon-button uk-icon-twitter" 
+											href="http://www.twitter.com/@<%- twitter_handle %>"></a>
 										<a class="uk-icon-button uk-icon-google-plus" href="#"></a>
 									</div>
 								</figcaption>
 							</figure>
 						</div>
-						<h2 class="uk-margin-bottom-remove"><span class="flag-icon flag-icon-gr"></span>
-							<%- name %>
+						<h2 class="uk-margin-bottom-remove"><span class="flag-icon flag-icon-gr <%- location %>"><%- location %></span>
+							<a href="<%- url %>"><%- name %></a>
 						</h2>
-						<p class="uk-text-large uk-margin-top-remove uk-text-muted">Job Description</p>
+						<p class="uk-text-large uk-margin-top-remove uk-text-muted">
+							<%- description %>
+						</p>
 					</div>
 				</div>
 			</div>
 		</script>
 		
 		<script src="js/data-jobs.json"></script>
-		<script src="js/data-worker.json"></script>
-		<!--<script src="js/list_occupations.json"></script>-->
+		<!--<script src="js/data-worker.json"></script>-->
+		<script src="js/list_occupations.json"></script>
 		<script src="js/libs/jquery-1.10.2.min.js"></script>
 		<script src="js/libs/underscore-min.js"></script>
 		<script src="js/libs/backbone-min.js"></script>
