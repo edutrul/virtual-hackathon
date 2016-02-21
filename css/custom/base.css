@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #main-search-job {
-	margin-bottom: 1em;	
+		
 }
 
 #main-search-job .field {
@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #main-search-job input[type="text"] {
 	width: 90%;
-	margin-left: 2.5%;
+	/*margin-left: 2.5%;*/
 	padding: 1em;
 	font-size: 1.2em;
 	margin-bottom: 0;
@@ -124,14 +124,26 @@ input[type="submit"] {
 	  font-weight: 400;
 	  padding: 0.5em 1em;
 	  text-align: center;
+		display: none;
+}
+
+#main-search-job {
+	position: relative;
+	margin-bottom: 1em;
 }
 
 #search-job-list {
+	margin: 0;
 	padding: 0;
-	height: 200px;
-	overflow: hidden;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
 }
 
 #search-job-list li {
 	background: white;
+	cursor: pointer;
+	list-style: none;
+	text-decoration: underline;
 }
