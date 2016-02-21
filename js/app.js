@@ -17,6 +17,10 @@ app.models.JobDescription = Backbone.Model.extend({
 	
 });
 
+app.models.JobVideo = Backbone.Model.extend({
+	
+});
+
 app.models.Worker = Backbone.Model.extend({
 	
 });
@@ -29,6 +33,12 @@ app.collections.JobDescription = Backbone.Collection.extend({
 	model: app.models.JobDescription,
 	url: '/get_description_occupation.php'
 	//url: 'description.json'
+});
+
+app.collections.JobVideo = Backbone.Collection.extend({
+	model: app.models.JobVideo,
+	url: '/list_video_tutorials.php'
+	//url: 'videos.json'
 });
 
 app.collections.Workers = Backbone.Collection.extend({
@@ -58,10 +68,48 @@ app.views.SearchJobItem = Backbone.View.extend({
 		var fetchWorkers = new app.collections.Workers,
 			fetchWorkers = fetchWorkers.fetch({ data: $.param({ occupation: 'chef'}) });
 			console.log(fetchWorkers);*/
+		console.log('click');
 		var foundWorkers = new app.views.WorkerList(e);
 		var showJobDescription = new app.views.JobDescription(e);
+		var showJobVideo = new app.views.JobVideo(e);
+		
+		
 	}
 });
+
+app.views.JobVideo = Backbone.View.extend({
+	tagName: 'div',
+	
+	template: _.template($('#template-job-video').html()),
+	
+	initialize: function(occupation) {
+		_.bindAll(this, "render");
+		var self = this;
+		this.url_occupation = $(occupation.target).data('occupation');
+		this.collection = new app.collections.JobVideo;
+
+		console.log(this.url_occupation);
+		this.collection.fetch({
+			data: $.param({ occupation: this.url_occupation}),
+			success: this.render
+		});
+	},
+	
+	render: function() {
+		//this.$el.html(this.template(this.model.toJSON()));
+		//this.collection.get(this.url_description);
+		
+		console.log('render');
+		_.each(this.collection.models, function(item) {
+			console.log('each');
+			$('#job-video').html(item.get('videoId'));
+		}, this);
+			
+		//this.$el.html(this.template(this.model.toJSON()));
+		return this;
+	}
+});
+
 
 app.views.JobDescription = Backbone.View.extend({
 	tagName: 'p',
@@ -174,11 +222,11 @@ app.views.WorkerList = Backbone.View.extend({
 		this.job = $(job.target).data('occupation');
 		this.collection = new app.collections.Workers;
 
-		console.log(this.job);
-		console.log(encodeURIComponent(this.job));
-		console.log(encodeURIComponent(this.job).replace(/%20/g,'+'));
+		//console.log(this.job);
+		//console.log(encodeURIComponent(this.job));
+		//console.log(encodeURIComponent(this.job).replace(/%20/g,'+'));
 		//console.log(decodeURI(this.job);
-console.log(this.collection);
+		//console.log(this.collection);
 		this.collection.fetch({
 			data: $.param({ occupation: (this.job)}),
 			success: this.render
@@ -197,7 +245,7 @@ console.log(this.collection);
 		*/
 		
 		_.each(this.collection.models, function(worker) {
-			console.log(worker);
+			//console.log(worker);
 			self.addWorkers(worker);
 		}, this);
 	},
