@@ -178,9 +178,9 @@ app.views.WorkerList = Backbone.View.extend({
 		console.log(encodeURIComponent(this.job));
 		console.log(encodeURIComponent(this.job).replace(/%20/g,'+'));
 		//console.log(decodeURI(this.job);
-
+console.log(this.collection);
 		this.collection.fetch({
-			data: $.param({ occupation: encodeURIComponent(this.job).replace(/%20/g,'+')}),
+			data: $.param({ occupation: (this.job)}),
 			success: this.render
 		});
 	},
