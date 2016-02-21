@@ -98,7 +98,7 @@ app.views.JobVideo = Backbone.View.extend({
 	render: function() {
 		//this.$el.html(this.template(this.model.toJSON()));
 		//this.collection.get(this.url_description);
-		var this = self;
+		var self = this;
 		console.log('render');
 		_.each(this.collection.models, function(item) {
 			console.log('each');
