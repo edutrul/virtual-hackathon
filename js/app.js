@@ -17,9 +17,21 @@ app.models.Worker = Backbone.Model.extend({
 	
 });
 
+app.models.JobDescription = Backbone.Model.extend({
+	
+});
+
 app.collections.Jobs = Backbone.Collection.extend({
 	model: app.models.Job
 });
+
+app.collections.JobDescription = Backbone.Collection.extend({
+	model: app.models.JobDescription,
+	
+	url: '/get_description_occupation.php'
+	
+});
+
 
 app.collections.Workers = Backbone.Collection.extend({
 	model: app.models.Worker,
@@ -49,6 +61,33 @@ app.views.SearchJobItem = Backbone.View.extend({
 			fetchWorkers = fetchWorkers.fetch({ data: $.param({ occupation: 'chef'}) });
 			console.log(fetchWorkers);*/
 		var foundWorkers = new app.views.WorkerList(e);
+		var showJobDescription = new app.views.JobDescription(e);
+	}
+});
+
+app.views.JobDescription = Backbone.View.extend({
+	tagName: 'p',
+	
+	template: _.template($('#template-job-description').html()),
+	
+	initialize: function(description) {
+		_.bindAll(this, "render");
+		var self = this;
+		this.url_description = $(description.target).data('occupation');
+		this.collection = new app.collections.JobDescription;
+
+
+		this.collection.fetch({
+			data: $.param({ page: this.url_description}),
+			success: this.render
+		});
+	},
+	
+	render: function() {
+		//this.$el.html(this.template(this.model.toJSON()));
+		//this.collection.get(this.url_description);
+				console.log('lol ' + this.url_description);
+		return this;
 	}
 });
 
