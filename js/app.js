@@ -13,11 +13,11 @@ app.models.Job = Backbone.Model.extend({
 	
 });
 
-app.models.Worker = Backbone.Model.extend({
+app.models.JobDescription = Backbone.Model.extend({
 	
 });
 
-app.models.JobDescription = Backbone.Model.extend({
+app.models.Worker = Backbone.Model.extend({
 	
 });
 
@@ -27,12 +27,9 @@ app.collections.Jobs = Backbone.Collection.extend({
 
 app.collections.JobDescription = Backbone.Collection.extend({
 	model: app.models.JobDescription,
-	
 	url: '/get_description_occupation.php'
 	//url: 'description.json'
-	
 });
-
 
 app.collections.Workers = Backbone.Collection.extend({
 	model: app.models.Worker,
@@ -81,15 +78,17 @@ app.views.JobDescription = Backbone.View.extend({
 			data: $.param({ url_description: this.url_description}),
 			success: this.render
 		});
-		
-		console.log(this.collection);
 	},
 	
-	render: function() {console.log('ri');
+	render: function() {
 		//this.$el.html(this.template(this.model.toJSON()));
 		//this.collection.get(this.url_description);
-				console.log('lol ' + this.url_description);
-		$('#job-description').html();		
+		
+		_.each(this.collection.models, function(item) {
+			$('#job-description').html(item.get('description'));
+		}, this);
+			
+		//this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	}
 });
@@ -175,12 +174,15 @@ app.views.WorkerList = Backbone.View.extend({
 		this.job = $(job.target).data('occupation');
 		this.collection = new app.collections.Workers;
 
+		console.log(decodeURI(this.job));
+		console.log(encodeURIComponent(this.job));
+		console.log(encodeURIComponent(this.job).replace(/%20/g,'+'));
+		//console.log(decodeURI(this.job);
+
 		this.collection.fetch({
-			data: $.param({ page: this.job}),
+			data: $.param({ occupation: decodeURI(this.job)}),
 			success: this.render
 		});
-
-		
 	},
 	
 	render: function() {
@@ -189,10 +191,13 @@ app.views.WorkerList = Backbone.View.extend({
 
 		/*
 		this.collection.each(function(model){
-		  console.log(model); 
-		});*/
+		  //console.log(model); 
+		//	this.addWorkers(model);
+		});
+		*/
 		
 		_.each(this.collection.models, function(worker) {
+			console.log(worker);
 			self.addWorkers(worker);
 		}, this);
 	},
