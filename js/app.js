@@ -89,7 +89,7 @@ app.views.JobVideoItems = Backbone.View.extend({
 });
 
 app.views.JobVideo = Backbone.View.extend({
-	el: '#job-videos',
+	//el: '#job-videos',
 	
 	initialize: function(occupation) {
 		_.bindAll(this, "render");
