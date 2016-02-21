@@ -197,7 +197,8 @@ app.views.WorkerList = Backbone.View.extend({
 
 		
 		this.collection.each(function(model){
-		  self.addWorkers(worker); 
+		  //console.log(model); 
+			this.addWorkers(worker);
 		});
 		
 		_.each(this.collection.models, function(worker) {
