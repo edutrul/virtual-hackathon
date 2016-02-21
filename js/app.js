@@ -90,7 +90,7 @@ app.views.JobVideo = Backbone.View.extend({
 
 		console.log(this.url_occupation);
 		this.collection.fetch({
-			data: $.param({ occupation: this.url_occupation}),
+			data: $.param({ occupation: this.url_occupation, count: 5}),
 			success: this.render
 		});
 	},
