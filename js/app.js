@@ -29,6 +29,7 @@ app.collections.JobDescription = Backbone.Collection.extend({
 	model: app.models.JobDescription,
 	
 	url: '/get_description_occupation.php'
+	//url: 'description.json'
 	
 });
 
@@ -73,20 +74,22 @@ app.views.JobDescription = Backbone.View.extend({
 	initialize: function(description) {
 		_.bindAll(this, "render");
 		var self = this;
-		this.url_description = $(description.target).data('occupation');
+		this.url_description = $(description.target).data('description');
 		this.collection = new app.collections.JobDescription;
 
-
 		this.collection.fetch({
-			data: $.param({ page: this.url_description}),
+			data: $.param({ url_description: this.url_description}),
 			success: this.render
 		});
+		
+		console.log(this.collection);
 	},
 	
-	render: function() {
+	render: function() {console.log('ri');
 		//this.$el.html(this.template(this.model.toJSON()));
 		//this.collection.get(this.url_description);
 				console.log('lol ' + this.url_description);
+		$('#job-description').html();		
 		return this;
 	}
 });
@@ -172,7 +175,6 @@ app.views.WorkerList = Backbone.View.extend({
 		this.job = $(job.target).data('occupation');
 		this.collection = new app.collections.Workers;
 
-		console.log('Passing ' + this.job);
 		this.collection.fetch({
 			data: $.param({ page: this.job}),
 			success: this.render
@@ -191,7 +193,6 @@ app.views.WorkerList = Backbone.View.extend({
 		});*/
 		
 		_.each(this.collection.models, function(worker) {
-			console.log('a');
 			self.addWorkers(worker);
 		}, this);
 	},
