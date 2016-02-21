@@ -7,7 +7,10 @@
  *   The occupation that you are looking to get people Who are doing or achieve this.
  * @return 
  */
-function list_tweeter_users_occupations($occupation = "developer", $count = 5) {
+function list_tweeter_users_occupations($occupation = "", $count = 5) {
+  if (empty($occupation)) {
+    return '';
+  }
   require_once('TwitterAPIExchange.php');
   /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
   $settings = array(
