@@ -175,7 +175,7 @@ app.views.WorkerList = Backbone.View.extend({
 		this.collection = new app.collections.Workers;
 
 		this.collection.fetch({
-			data: $.param({ occupation: encodeURIComponent(this.job)}),
+			data: $.param({ occupation: encodeURI(this.job)}),
 			success: this.render
 		});
 	},
