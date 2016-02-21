@@ -68,7 +68,7 @@ app.views.SearchJobItem = Backbone.View.extend({
 		var fetchWorkers = new app.collections.Workers,
 			fetchWorkers = fetchWorkers.fetch({ data: $.param({ occupation: 'chef'}) });
 			console.log(fetchWorkers);*/
-		console.log('click');
+
 		var foundWorkers = new app.views.WorkerList(e);
 		var showJobDescription = new app.views.JobDescription(e);
 		var showJobVideo = new app.views.JobVideo(e);
