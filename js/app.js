@@ -178,8 +178,6 @@ app.views.WorkerList = Backbone.View.extend({
 			data: $.param({ occupation: this.job}),
 			success: this.render
 		});
-
-		
 	},
 	
 	render: function() {
