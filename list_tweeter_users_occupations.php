@@ -19,6 +19,7 @@ function list_tweeter_users_occupations($occupation = "developer", $count = 5) {
 
   $data_geop = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=' . $_SERVER['REMOTE_ADDR']));
   $country = !empty($data_geop['geoplugin_countryName']) ? $data_geop['geoplugin_countryName'] : '';
+  $country_code = !empty($data_geop['geoplugin_countryCode']) ? strtolower($data_geop['geoplugin_countryName']) : '';
 
   /** Perform a GET request and echo the response **/
   /** Note: Set the GET field BEFORE calling buildOauth(); **/
@@ -40,6 +41,8 @@ function list_tweeter_users_occupations($occupation = "developer", $count = 5) {
       'name' => $user->name,
       'twitter_handle' => $user->screen_name,
       'location' => !empty($user->location) ? $user->location : '',
+      'country' => $country,
+      'country_code' => $country_code,
       'description' => !empty($user->description) ? $user->description : '',
       'url' => !empty($user->url) ? $user->url : '',
       'image' => !empty($user->profile_image_url_https) ? str_replace('normal', $width . 'x' . $height, $user->profile_image_url_https) : '',
