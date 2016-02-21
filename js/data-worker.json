@@ -1,0 +1,11 @@
+dataWorker = [
+	{'title': 'José', 'occupation': 'Doctor'},
+	{'title': 'Pedro', 'occupation': 'Chef'},
+	{'title': 'Manuel', 'occupation': 'Web Developer'},
+	{'title': 'Fernando', 'occupation': 'Lawyer'},
+	{'title': 'Oscar', 'occupation': 'Doctor'},
+	{'title': 'Luis', 'occupation': 'Chef'},
+	{'title': 'Eva', 'occupation': 'Web Developer'},
+	{'title': 'Luz', 'occupation': 'Lawyer'}
+]
+

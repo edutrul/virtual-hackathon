@@ -1,6 +1,7 @@
 dataJobs = [
-    {"value":"Chef", "title":"Chef", "url":"#", "text":"Lorem ipsum dolor sit amet, consectetur ..."},
-    {"value":"Web Developer", "title":"Web Developer", "url":"#", "text":"Ut enim ad minim veniam, quis nostrud ..."},
-    {"value":"Doctor", "title":"Doctor", "url":"#", "text":"Duis aute irure dolor in reprehenderit ..."},
-    {"value":"Lawyer", "title":"Lawyer", "url":"#", "text":"Excepteur sint occaecat cupidatat non ..."}
+    {"value":"Chef", "occupation":"Chef", "url":"#", "text":"Lorem ipsum dolor sit amet, consectetur ..."},
+    {"value":"Web Developer", "occupation":"Web Developer", "url":"#", "text":"Ut enim ad minim veniam, quis nostrud ..."},
+    {"value":"Doctor", "occupation":"Doctor", "url":"#", "text":"Duis aute irure dolor in reprehenderit ..."},
+    {"value":"Lawyer", "occupation":"Lawyer", "url":"#", "text":"Excepteur sint occaecat cupidatat non ..."}
 ]
+
