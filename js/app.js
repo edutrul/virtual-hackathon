@@ -75,7 +75,7 @@ app.views.JobDescription = Backbone.View.extend({
 		this.collection = new app.collections.JobDescription;
 
 		this.collection.fetch({
-			data: $.param({ url_description: encodeURIComponent(this.url_description)}),
+			data: $.param({ url_description: this.url_description}),
 			success: this.render
 		});
 	},
