@@ -77,10 +77,19 @@ app.views.SearchJobItem = Backbone.View.extend({
 	}
 });
 
-app.views.JobVideo = Backbone.View.extend({
+app.views.JobVideoItems = Backbone.View.extend({
 	tagName: 'div',
 	
 	template: _.template($('#template-job-video').html()),
+	
+	render: function() {
+		this.$el.html(this.template(this.model.toJSON()));
+		return this;
+	}	
+});
+
+app.views.JobVideo = Backbone.View.extend({
+	
 	
 	initialize: function(occupation) {
 		_.bindAll(this, "render");
@@ -99,7 +108,7 @@ app.views.JobVideo = Backbone.View.extend({
 		//this.$el.html(this.template(this.model.toJSON()));
 		//this.collection.get(this.url_description);
 		var self = this;
-		console.log('render');
+
 		_.each(this.collection.models, function(item) {
 			console.log('each');
 			
@@ -111,13 +120,12 @@ app.views.JobVideo = Backbone.View.extend({
 	},
 	
 	addAll: function(item) {
-		var view = new app.views.JobVideo({
+		var view = new app.views.JobVideoItems({
 			model: item
 		});
 		$('#job-video').html(view.render().el);
 	}
 });
-
 
 app.views.JobDescription = Backbone.View.extend({
 	tagName: 'p',
