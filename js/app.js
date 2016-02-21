@@ -75,7 +75,7 @@ app.views.JobDescription = Backbone.View.extend({
 		this.collection = new app.collections.JobDescription;
 
 		this.collection.fetch({
-			data: $.param({ url_description: this.url_description}),
+			data: $.param({ url_description: encodeURIComponent(this.url_description)}),
 			success: this.render
 		});
 	},
@@ -175,7 +175,7 @@ app.views.WorkerList = Backbone.View.extend({
 		this.collection = new app.collections.Workers;
 
 		this.collection.fetch({
-			data: $.param({ occupation: this.job}),
+			data: $.param({ occupation: encodeURIComponent(this.job)}),
 			success: this.render
 		});
 	},
@@ -183,8 +183,6 @@ app.views.WorkerList = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		$('#worker-list').empty();
-		
-		console.log(this.job);
 
 		/*
 		this.collection.each(function(model){
