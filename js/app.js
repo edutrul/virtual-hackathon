@@ -23,8 +23,8 @@ app.collections.Jobs = Backbone.Collection.extend({
 
 app.collections.Workers = Backbone.Collection.extend({
 	model: app.models.Worker,
-	//url: '/list_tweeter_users_occupations.php'
-	url: 'http://158.85.177.252/list_tweeter_users_occupations.php'
+	url: '/list_tweeter_users_occupations.php'
+	//url: 'http://158.85.177.252/list_tweeter_users_occupations.php'
 });
 
 app.views.SearchJobItem = Backbone.View.extend({
