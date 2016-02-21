@@ -54,7 +54,7 @@ function list_tweeter_users_occupations($occupation = "developer", $count = 5) {
 
 // LOGIC GOES HERE...
 
-$occupation = !empty($_GET['occupation']) ? $_GET['occupation'] : 'developer';
+$occupation = !empty($_GET['occupation']) ? $_GET['occupation'] : '';
 $count = !empty($_GET['count']) ? $_GET['count'] : 5;
 
 print json_encode(list_tweeter_users_occupations($occupation, $count));
