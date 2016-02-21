@@ -127,6 +127,12 @@ input[type="submit"] {
 		display: none;
 }
 
+.column {
+	width: 50%;
+	vertical-align: top;
+	display: inline-block;
+}
+
 #main-search-job {
 	position: relative;
 	margin-bottom: 1em;
