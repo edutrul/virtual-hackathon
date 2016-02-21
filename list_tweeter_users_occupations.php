@@ -30,6 +30,7 @@ function list_tweeter_users_occupations($occupation = "", $count = 5) {
   //$url = 'https://api.twitter.com/1.1/search/tweets.json';
   //$getfield = 'q=chef&geocode=-9.189967,-75.015152&lang=es';
   $getfield = 'q=' . rawurlencode($occupation) . '+' . $country . '&count=' . $count;
+  print rawurlencode($occupation);
   $requestMethod = 'GET';
   $twitter = new TwitterAPIExchange($settings);
   $result = $twitter->setGetfield($getfield)
