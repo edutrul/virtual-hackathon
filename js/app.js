@@ -82,14 +82,15 @@ app.views.JobDescription = Backbone.View.extend({
 			success: this.render
 		});
 		
-		console.log(this.collection);
+		console.log(this.collection.get('description'));
 	},
 	
 	render: function() {console.log('ri');
 		//this.$el.html(this.template(this.model.toJSON()));
 		//this.collection.get(this.url_description);
 				console.log('lol ' + this.url_description);
-		$('#job-description').html();		
+			
+		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	}
 });
