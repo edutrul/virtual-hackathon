@@ -180,7 +180,7 @@ app.views.WorkerList = Backbone.View.extend({
 		//console.log(decodeURI(this.job);
 
 		this.collection.fetch({
-			data: $.param({ occupation: this.job}),
+			data: $.param({ occupation: encodeURIComponent(this.job).replace(/%20/g,'+')}),
 			success: this.render
 		});
 	},
