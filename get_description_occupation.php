@@ -7,9 +7,12 @@
  *   Url of description to request about.
  * 
  * @return string
- *   The occupation description.
+ *   The occupation description else empty string.
  */
-function _get_description_occupation($url_description) {
+function _get_description_occupation($url_description = '') {
+  if (empty($url_description)) {
+    return '';
+  }
   require_once('simple_html_dom.php');
   // Create DOM from URL or file
   $html = file_get_html($url_description);
@@ -23,6 +26,6 @@ function _get_description_occupation($url_description) {
   return $occupation_description;
 }
 
-$url_description = "http://www.stepfour.com/jobs/v9/911364010.htm";
+$url_description = !empty($_GET['url_description']) ? $_GET['url_description'] : '';
 print json_encode(array('description' => _get_description_occupation($url_description)));
 exit();
