@@ -13,11 +13,11 @@ app.models.Job = Backbone.Model.extend({
 	
 });
 
-app.models.Worker = Backbone.Model.extend({
+app.models.JobDescription = Backbone.Model.extend({
 	
 });
 
-app.models.JobDescription = Backbone.Model.extend({
+app.models.Worker = Backbone.Model.extend({
 	
 });
 
@@ -27,12 +27,9 @@ app.collections.Jobs = Backbone.Collection.extend({
 
 app.collections.JobDescription = Backbone.Collection.extend({
 	model: app.models.JobDescription,
-	
 	url: '/get_description_occupation.php'
 	//url: 'description.json'
-	
 });
-
 
 app.collections.Workers = Backbone.Collection.extend({
 	model: app.models.Worker,
@@ -81,21 +78,15 @@ app.views.JobDescription = Backbone.View.extend({
 			data: $.param({ url_description: this.url_description}),
 			success: this.render
 		});
-		
-
-		
-		
 	},
 	
-	render: function() {console.log('ri');
+	render: function() {
 		//this.$el.html(this.template(this.model.toJSON()));
 		//this.collection.get(this.url_description);
 		
 		_.each(this.collection.models, function(item) {
 			$('#job-description').html(item.get('description'));
 		}, this);
-		
-				console.log('lol ' + this.url_description);
 			
 		//this.$el.html(this.template(this.model.toJSON()));
 		return this;
@@ -184,7 +175,7 @@ app.views.WorkerList = Backbone.View.extend({
 		this.collection = new app.collections.Workers;
 
 		this.collection.fetch({
-			data: $.param({ page: this.job}),
+			data: $.param({ occupation: this.job}),
 			success: this.render
 		});
 
