@@ -98,15 +98,23 @@ app.views.JobVideo = Backbone.View.extend({
 	render: function() {
 		//this.$el.html(this.template(this.model.toJSON()));
 		//this.collection.get(this.url_description);
-		
+		var this = self;
 		console.log('render');
 		_.each(this.collection.models, function(item) {
 			console.log('each');
-			$('#job-video').html(item.get('videoId'));
+			
+			self.addAll(item);
 		}, this);
 			
 		//this.$el.html(this.template(this.model.toJSON()));
 		return this;
+	},
+	
+	addAll: function(item) {
+		var view = new app.views.JobVideo({
+			model: item
+		});
+		$('#job-video').html(view.render().el);
 	}
 });
 
