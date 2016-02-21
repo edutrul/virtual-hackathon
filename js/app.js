@@ -43,8 +43,9 @@ app.views.SearchJobItem = Backbone.View.extend({
 	
 	findJobWorkers: function(e) {
 		//var fetchWorkers = new app.collections.Workers;collection.fetch({ data: $.param({ page: 1}) });
-		var foundWorkers = new app.views.WorkerList;
-		console.log('e');
+		var fetchWorkers = new app.collections.Workers,
+			fetchWorkers = fetchWorkers.fetch({ data: $.param({ occupation: 'chef'}) })
+		var foundWorkers = new app.views.WorkerList(fetchWorkers);
 	}
 });
 
@@ -120,8 +121,7 @@ app.views.WorkerList = Backbone.View.extend({
 	el: '#worker-list',
 	
 	initialize: function(options) {
-		this.collection = new app.collections.Workers;//options.collection;
-		this.collection = this.collection.fetch({ data: $.param({ occupation: 'chef'}) })
+		this.collection = new app.collections.Workers(options);//options.collection;
 		this.render();
 	},
 	
