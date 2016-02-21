@@ -195,13 +195,15 @@ app.views.WorkerList = Backbone.View.extend({
 		var self = this;
 		$('#worker-list').empty();
 
-		
+		/*
 		this.collection.each(function(model){
 		  //console.log(model); 
-			this.addWorkers(model);
+		//	this.addWorkers(model);
 		});
+		*/
 		
 		_.each(this.collection.models, function(worker) {
+			console.log('xxw');
 			self.addWorkers(worker);
 		}, this);
 	},
