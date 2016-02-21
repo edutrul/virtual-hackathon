@@ -86,7 +86,11 @@ app.views.SearchJobList = Backbone.View.extend({
 	
 	searchJob: function(e) {
 		this.searchJob = e.target.value;
-		this.trigger('change:searchJob');
+		
+		if (this.searchJob.length > 3) {
+			this.trigger('change:searchJob');
+		}
+		
 	},
 	
 	searchJobCleanse: function() {
