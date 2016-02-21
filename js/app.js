@@ -82,7 +82,11 @@ app.views.JobDescription = Backbone.View.extend({
 			success: this.render
 		});
 		
-		console.log(this.collection.get('description'));
+		_.each(this.collection.models, function(item) {
+			console.log(item.get('description'));
+		}, this);
+		
+		
 	},
 	
 	render: function() {console.log('ri');
