@@ -183,6 +183,8 @@ app.views.WorkerList = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		$('#worker-list').empty();
+		
+		console.log(this.job);
 
 		/*
 		this.collection.each(function(model){
