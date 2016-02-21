@@ -174,6 +174,11 @@ app.views.WorkerList = Backbone.View.extend({
 		this.job = $(job.target).data('occupation');
 		this.collection = new app.collections.Workers;
 
+		console.log(decodeURI(this.job));
+		console.log(encodeURIComponent(this.job));
+		console.log(encodeURIComponent(this.job).replace(/%20/g,'+'));
+		//console.log(decodeURI(this.job);
+
 		this.collection.fetch({
 			data: $.param({ occupation: decodeURI(this.job)}),
 			success: this.render
