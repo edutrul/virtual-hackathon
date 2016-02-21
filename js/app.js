@@ -23,8 +23,8 @@ app.collections.Jobs = Backbone.Collection.extend({
 
 app.collections.Workers = Backbone.Collection.extend({
 	model: app.models.Worker,
-	url: '/list_tweeter_users_occupations.php'
-	//url: 'list_tweeter-test.json'
+	//url: '/list_tweeter_users_occupations.php'
+	url: 'list_tweeter-test.json'
 });
 
 app.views.SearchJobItem = Backbone.View.extend({
@@ -48,7 +48,7 @@ app.views.SearchJobItem = Backbone.View.extend({
 		var fetchWorkers = new app.collections.Workers,
 			fetchWorkers = fetchWorkers.fetch({ data: $.param({ occupation: 'chef'}) });
 			console.log(fetchWorkers);*/
-		var foundWorkers = new app.views.WorkerList();
+		var foundWorkers = new app.views.WorkerList(e);
 	}
 });
 
@@ -123,12 +123,15 @@ app.views.WorkerItem = Backbone.View.extend({
 app.views.WorkerList = Backbone.View.extend({
 	el: '#worker-list',
 	
-	initialize: function() {
+	initialize: function(job) {
 		_.bindAll(this, "render");
 		var self = this;
-		this.collection = new app.collections.Workers();
+		this.job = $(job.target).data('occupation');
+		this.collection = new app.collections.Workers;
 
+		console.log('Passing ' + this.job);
 		this.collection.fetch({
+			data: $.param({ page: this.job}),
 			success: this.render
 		});
 
