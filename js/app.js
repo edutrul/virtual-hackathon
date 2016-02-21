@@ -77,7 +77,7 @@ app.views.SearchJobList = Backbone.View.extend({
 		this.collection.reset(dataJobs, {silent: true});
 		var filterJob = this.searchJob,
 			filtered = _.filter(this.collection.models, function(item) {
-				return item.get('title').toLowerCase().indexOf(filterJob.toLowerCase()) !== -1;
+				return item.get('occupation').toLowerCase().indexOf(filterJob.toLowerCase()) !== -1;
 			});
 		this.collection.reset(filtered);
 	}
