@@ -24,7 +24,7 @@ app.collections.Jobs = Backbone.Collection.extend({
 app.collections.Workers = Backbone.Collection.extend({
 	model: app.models.Worker,
 	url: '/list_tweeter_users_occupations.php'
-	//url: '/list_tweeter-test.json'
+	//url: 'list_tweeter-test.json'
 });
 
 app.views.SearchJobItem = Backbone.View.extend({
@@ -44,10 +44,11 @@ app.views.SearchJobItem = Backbone.View.extend({
 	findJobWorkers: function(e) {
 		//var fetchWorkers = new app.collections.Workers;collection.fetch({ data: $.param({ page: 1}) });
 		
-		/*var fetchWorkers = new app.collections.Workers,
-			fetchWorkers = fetchWorkers.fetch({ data: $.param({ occupation: 'chef'}) })*/
-		var foundWorkers = new app.views.WorkerList;
-		console.log(e);
+		/*
+		var fetchWorkers = new app.collections.Workers,
+			fetchWorkers = fetchWorkers.fetch({ data: $.param({ occupation: 'chef'}) });
+			console.log(fetchWorkers);*/
+		var foundWorkers = new app.views.WorkerList();
 	}
 });
 
@@ -123,16 +124,28 @@ app.views.WorkerList = Backbone.View.extend({
 	el: '#worker-list',
 	
 	initialize: function() {
-		this.collection = new app.collections.Workers;//options.collection;
-		this.render();
-		this.collection.fetch({ data: $.param({ occupation: 'chef'}) });
+		_.bindAll(this, "render");
+		var self = this;
+		this.collection = new app.collections.Workers();
+
+		this.collection.fetch({
+			success: this.render
+		});
+
+		
 	},
 	
 	render: function() {
 		var self = this;
 		$('#worker-list').empty();
+
+		/*
+		this.collection.each(function(model){
+		  console.log(model); 
+		});*/
 		
 		_.each(this.collection.models, function(worker) {
+			console.log('a');
 			self.addWorkers(worker);
 		}, this);
 	},
