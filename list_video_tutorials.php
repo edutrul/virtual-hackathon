@@ -11,7 +11,7 @@
  * @return string
  *   JSON array of videos.
  */
-function list_video_tutorials($occupation, $count = 2) {
+function list_video_tutorials($occupation, $count = 3) {
   if (empty($occupation)) {
     return '';
   }
@@ -48,6 +48,6 @@ function list_video_tutorials($occupation, $count = 2) {
 }
 
 $occupation = !empty($_GET['occupation']) ? $_GET['occupation'] : '';
-$count = !empty($_GET['count']) ? $_GET['count'] : '';
+$count = !empty($_GET['count']) ? $_GET['count'] : 3;
 print json_encode(list_video_tutorials($occupation, $count));
 exit();
