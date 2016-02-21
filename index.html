@@ -84,6 +84,10 @@
 		
 		</div>
 		
+		<div id="job-video">
+		
+		</div>
+		
 		<div id="worker-list"data-uk-grid-margin="" class="uk-grid" >
 			
 		
@@ -92,7 +96,14 @@
 		             
 		</div>
 		</div>
-		
+
+		<script type="text/template" id="template-job-video">
+			<div class="job-video" data-occupation="<%- occupation %>">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/<%- videoId %>"
+				 frameborder="0" allowfullscreen></iframe>
+			</div>
+		</script>
+				
 		<script type="text/template" id="template-job-description">
 			<div class="job-item" data-occupation="<%- occupation %>">
 				<%- url_description %>
@@ -100,7 +111,7 @@
 		</script>
 		
 		<script type="text/template" id="template-search-job-item">
-			<div class="job-item lol" data-occupation="<% print(occupation) %>" data-description="<%- url_description %>">
+			<div class="job-item" data-occupation="<% print(occupation) %>" data-description="<%- url_description %>">
 				<%- occupation %>
 			</div>
 		</script>
@@ -135,6 +146,7 @@
 		</script>
 		
 
+		<script src="js/videos.json"></script>
 		<script src="js/description.json"></script>
 		<script src="js/list_occupations.json"></script>
 		<script src="js/libs/jquery-1.10.2.min.js"></script>
