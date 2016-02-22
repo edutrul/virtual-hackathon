@@ -95,7 +95,7 @@ app.views.SearchJobItem = Backbone.View.extend({
 app.views.Book = Backbone.View.extend({
 	tagName: 'div',
 	
-	template: _.template($('#template-book-ite').html()),
+	template: _.template($('#template-book-item').html()),
 	
 	render: function() {
 		this.$el.html(this.template(this.model.toJSON()));
