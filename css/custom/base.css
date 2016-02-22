@@ -133,6 +133,10 @@ input[type="submit"] {
 	display: inline-block;
 }
 
+#job-description {
+	padding-right: 1em;
+}
+
 #main-search-job {
 	position: relative;
 	margin-bottom: 1em;
