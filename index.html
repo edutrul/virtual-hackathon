@@ -103,10 +103,13 @@
 		
 		
 		<script type="text/template" id="template-book-item">
-			<dl class="book-item">
-				<dt><h2><a href="<%- href %>"><%- title %></a></h2></dt>
-				<dd><a href="<%- href %>"><img src="<%- image %>" /></a></dd>
-			</dl>
+			<div class="book-item">
+				
+				<div class="field-image"><a href="<%- href %>"><img src="<%- image %>" /></a></div>
+				<div class="text-content">
+					<h2><a href="<%- href %>"><%- title %></a></h2>
+				</div>
+			</div>
 		</script>
 		
 
