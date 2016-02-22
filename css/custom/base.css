@@ -173,3 +173,11 @@ input[type="submit"] {
 .text-content {
 	overflow: hidden;
 }
+
+.book {
+	text-align: center;
+}
+
+.book .text-content {
+	overflow: visible;
+}
