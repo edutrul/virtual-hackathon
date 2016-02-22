@@ -127,16 +127,36 @@ input[type="submit"] {
 		display: none;
 }
 
+
+
 .column {
 	width: 50%;
 	vertical-align: top;
 	display: inline-block;
 }
 
+
 #job-description {
 	padding-right: 1em;
 	box-sizing: border-box;
 }
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+	.column {
+		width: 100%;
+		vertical-align: top;
+		display: inline-block;
+	}
+	
+	#job-description { 
+		padding-right: 0;
+	}
+}
+
 
 #main-search-job {
 	position: relative;
