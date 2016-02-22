@@ -9,6 +9,10 @@ app = {
 	}
 };
 
+app.models.Book = Backbone.Model.extend({
+	
+});
+
 app.models.Job = Backbone.Model.extend({
 	
 });
@@ -23,6 +27,11 @@ app.models.JobVideo = Backbone.Model.extend({
 
 app.models.Worker = Backbone.Model.extend({
 	
+});
+
+app.collections.Books = Backbone.Collection.extend({
+	model: app.models.Book,
+	url: '/list_books.php'
 });
 
 app.collections.Jobs = Backbone.Collection.extend({
@@ -72,12 +81,73 @@ app.views.SearchJobItem = Backbone.View.extend({
 		var foundWorkers = new app.views.WorkerList(e);
 		var showJobDescription = new app.views.JobDescription(e);
 		var showJobVideo = new app.views.JobVideo(e);
+		var showBooks = new app.views.Books(e);
 		
 		$('html, body').animate({scrollTop: $("#web-content").offset().top}, 250);
 
 
 	}
 });
+
+
+
+
+app.views.Book = Backbone.View.extend({
+	tagName: 'div',
+	
+	template: _.template($('#template-book-ite').html()),
+	
+	render: function() {
+		this.$el.html(this.template(this.model.toJSON()));
+		return this;
+	}	
+});
+
+app.views.Books = Backbone.View.extend({
+	//el: '#job-videos',
+	
+	initialize: function(occupation) {
+		_.bindAll(this, "render");
+		var self = this;
+		this.url_occupation = $(occupation.target).data('occupation');
+		this.collection = new app.collections.JobVideo;
+
+		console.log(this.url_occupation);
+		this.collection.fetch({
+			data: $.param({ occupation: this.url_occupation, count: 5}),
+			success: this.render
+		});
+	},
+	
+	render: function() {
+		//this.$el.html(this.template(this.model.toJSON()));
+		//this.collection.get(this.url_description);
+		var self = this;
+
+		_.each(this.collection.models, function(item) {			
+			self.addAll(item);
+		}, this);
+			
+		//this.$el.html(this.template(this.model.toJSON()));
+		return this;
+	},
+	
+	addAll: function(item) {
+		var view = new app.views.JobVideoItems({
+			model: item
+		});
+		$('#job-video').html(view.render().el);
+	}
+});
+
+
+
+
+
+
+
+
+
 
 app.views.JobVideoItems = Backbone.View.extend({
 	tagName: 'div',
@@ -112,7 +182,6 @@ app.views.JobVideo = Backbone.View.extend({
 		var self = this;
 
 		_.each(this.collection.models, function(item) {
-			console.log('each');
 			
 			self.addAll(item);
 		}, this);
