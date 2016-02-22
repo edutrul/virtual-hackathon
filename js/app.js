@@ -149,8 +149,8 @@ app.views.JobDescription = Backbone.View.extend({
 		//this.collection.get(this.url_description);
 		
 		_.each(this.collection.models, function(item) {
-			//$('#job-description').html(item.get('description'));
-			$('#job-description').html(this.template(item.toJSON()));
+			$('#job-description').html('<h2>' + item.get('description') + '</h2>'+ '<p>' + item.get('description') + '</p>');
+			//$('#job-description').html(this.template(item.toJSON()));
 		}, this);
 			
 		//this.$el.html(this.template(this.model.toJSON()));
