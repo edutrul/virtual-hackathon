@@ -135,6 +135,7 @@ input[type="submit"] {
 
 #job-description {
 	padding-right: 1em;
+	box-sizing: border-box;
 }
 
 #main-search-job {
