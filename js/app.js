@@ -110,7 +110,7 @@ app.views.Books = Backbone.View.extend({
 		_.bindAll(this, "render");
 		var self = this;
 		this.url_occupation = $(occupation.target).data('occupation');
-		this.collection = new app.collections.JobVideo;
+		this.collection = new app.collections.Books;
 
 		console.log(this.url_occupation);
 		this.collection.fetch({
