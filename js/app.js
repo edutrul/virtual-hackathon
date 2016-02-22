@@ -73,6 +73,7 @@ app.views.SearchJobItem = Backbone.View.extend({
 		var showJobDescription = new app.views.JobDescription(e);
 		var showJobVideo = new app.views.JobVideo(e);
 		
+		$('html, body').animate({$('#web-content').position().top});
 		
 	}
 });
