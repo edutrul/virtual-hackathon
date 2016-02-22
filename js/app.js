@@ -120,23 +120,18 @@ app.views.Books = Backbone.View.extend({
 	},
 	
 	render: function() {
-		//this.$el.html(this.template(this.model.toJSON()));
-		//this.collection.get(this.url_description);
 		var self = this;
-
+		console.log('ep');
 		_.each(this.collection.models, function(item) {			
 			self.addAll(item);
 		}, this);
-			
-		//this.$el.html(this.template(this.model.toJSON()));
-		return this;
 	},
 	
 	addAll: function(item) {
 		var view = new app.views.JobVideoItems({
 			model: item
 		});
-		$('#job-video').html(view.render().el);
+		$('#books').html(view.render().el);
 	}
 });
 
