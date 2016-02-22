@@ -84,7 +84,7 @@ app.views.SearchJobItem = Backbone.View.extend({
 		var showBooks = new app.views.Books(e);
 		
 		$('html, body').animate({scrollTop: $("#web-content").offset().top}, 250);
-
+		$('.home-message').css('display', 'block');
 
 	}
 });

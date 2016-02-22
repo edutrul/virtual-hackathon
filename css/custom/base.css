@@ -163,6 +163,9 @@ input[type="submit"] {
 	}
 }
 
+.home-message {
+	display: none;
+}
 
 #main-search-job {
 	position: relative;
