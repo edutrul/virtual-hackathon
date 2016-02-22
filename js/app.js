@@ -94,6 +94,8 @@ app.views.SearchJobItem = Backbone.View.extend({
 
 app.views.Book = Backbone.View.extend({
 	tagName: 'div',
+
+	className: 'uk-width-medium-1-5 uk-text-center uk-row-first',
 	
 	template: _.template($('#template-book-item').html()),
 	
