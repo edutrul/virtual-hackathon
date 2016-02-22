@@ -31,7 +31,7 @@ app.models.Worker = Backbone.Model.extend({
 
 app.collections.Books = Backbone.Collection.extend({
 	model: app.models.Book,
-	url: '/list_books.php'
+	url: 'list_books.php'
 });
 
 app.collections.Jobs = Backbone.Collection.extend({
@@ -40,19 +40,19 @@ app.collections.Jobs = Backbone.Collection.extend({
 
 app.collections.JobDescription = Backbone.Collection.extend({
 	model: app.models.JobDescription,
-	url: '/get_description_occupation.php'
+	url: 'get_description_occupation.php'
 	//url: 'description.json'
 });
 
 app.collections.JobVideo = Backbone.Collection.extend({
 	model: app.models.JobVideo,
-	url: '/list_video_tutorials.php'
+	url: 'list_video_tutorials.php'
 	//url: 'videos.json'
 });
 
 app.collections.Workers = Backbone.Collection.extend({
 	model: app.models.Worker,
-	url: '/list_tweeter_users_occupations.php'
+	url: 'list_tweeter_users_occupations.php'
 	//url: 'list_tweeter-test.json'
 });
 
