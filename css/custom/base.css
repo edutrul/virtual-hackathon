@@ -166,8 +166,7 @@ input[type="submit"] {
 }
 
 .field-image {
-	float: left;
-	margin-right: 20px;
+
 }
 
 .text-content {
@@ -180,4 +179,23 @@ input[type="submit"] {
 
 .book .text-content {
 	overflow: visible;
+}
+
+.item-title {
+	font-size: 16px;
+	font-weight: 400;
+	color: black;
+	line-height: 120%;
+	display: block;
+	text-align: center;
+}
+
+
+.item-title a {
+	font-size: inherit;
+	font-weight: inherit;
+	color: inherit;
+	line-height: inherit;
+	display: block;
+	text-align: inherit;	
 }
