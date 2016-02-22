@@ -121,7 +121,7 @@ app.views.Books = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
-		console.log('ep');
+		$('#books').empty();
 		_.each(this.collection.models, function(item) {			
 			self.addAll(item);
 		}, this);
@@ -131,7 +131,7 @@ app.views.Books = Backbone.View.extend({
 		var view = new app.views.Book({
 			model: item
 		});
-		$('#books').html(view.render().el);
+		$('#books').append(view.render().el);
 	}
 });
 
