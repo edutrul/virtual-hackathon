@@ -166,11 +166,15 @@ input[type="submit"] {
 }
 
 .field-image {
-
+	margin-bottom: 10px;
 }
 
 .text-content {
 	overflow: hidden;
+}
+
+#wrapper-job {
+	padding-bottom: 15px;
 }
 
 .book {
